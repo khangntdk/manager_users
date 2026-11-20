@@ -1,0 +1,41 @@
+Thực hành xây dựng chức năng quản lý người dùng
+
+Phần I: xác thực truy cập
+
+-Đăng nhập 
+-Đăng ký
+-Đăng xuất 
+-Quên mật khẩu
+-Kích hoạt tài khoản
+
+Phần II: quản lý người dùng
+
+-kiểm tra người dùng đăng nhập
+-Thêm người dùng
+-sửa và xóa người dùng
+-hiển thị số users
+-phân trang
+-tìm kiếm, lọc dữ liệu
+
+THiết kế database:
+
+- Bảng users:
+    + id - primary key (int)
+    + fullname (varchar(100))
+    + email (varchar(100))
+    + phone (varchar(20))
+    + password (varchar(50))
+    + forgotToken (varchar(100))
+    + activeToken (varchar(100))
+    + create_at (datetime)
+    + update_at (datetime)
+
+- Bảng loginToken:
+    + id - primary key (int)
+    + user_Id (int)
+    + token varchar(100)
+
+Code chức năng đăng ký tài khoản
+-Đăng ký (kiểm tra và insert dữ liệu vào bảng users)
+-Gửi mail kích hoạt cho người dùng
+-người dùng bấm vào link kích hoạt tài khoản (otp)
