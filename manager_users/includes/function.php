@@ -34,7 +34,7 @@ try {
     $mail->addAddress($to);     //Add a recipient
    
     //Content
-    $mail -> charSet = "UTF-8";
+    $mail -> CharSet = "UTF-8";
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = $subject;
     $mail->Body    = $content;
@@ -174,4 +174,21 @@ function form_error($fileName, $beforeHTML='', $afterHTML='', $errors){
 //hàm hiển thị dữ liệu cũ 
 function old($fileName, $oldData, $default = null){
     return (!empty($oldData[$fileName])) ? $oldData[$fileName] : $default;
+}
+
+//hàm kiểm tra trạng thái đăng nhập 
+function isLogin(){
+        $checkLogin = false;
+    if(getSession('login_token')){
+        $tokenLogin = getSession('login_token');
+        //kiểm tra token có giống trong database không
+        $queryToken = oneRaw("SELECT user_id FROM login_token WHERE token = '$tokenLogin'");
+
+        if(!empty($queryToken)){
+            $checkLogin = true;
+        }else{
+            removeSession('login_token');
+        }
+    }
+    return $checkLogin;
 }

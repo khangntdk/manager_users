@@ -117,9 +117,7 @@ if(isPost()){
     $errors = getFlashData('errors');
     $old = getFlashData('old');
 
-    echo '<pre>';
-    print_r($old);
-    echo '</pre>';
+
   
 ?>
 
