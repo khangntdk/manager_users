@@ -39,3 +39,9 @@ Code chức năng đăng ký tài khoản
 -Đăng ký (kiểm tra và insert dữ liệu vào bảng users)
 -Gửi mail kích hoạt cho người dùng
 -người dùng bấm vào link kích hoạt tài khoản (otp)
+
+*code tính năng quên mật khẩu
+-tạo ra forgot token
+-gửi email chứa link đến trang reset
+-xác thực token, hiện ra form reset password
+-submit reset password -> xử lý -> update lại mật khẩu
